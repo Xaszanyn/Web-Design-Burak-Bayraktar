@@ -1,0 +1,197 @@
+section {
+  padding: 10rem 10rem 0;
+}
+
+section:last-of-type {
+  padding-bottom: 10rem;
+}
+
+section h3 {
+  font-size: var(--vast);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 5rem;
+  color: var(--dark-green);
+}
+
+section .content {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 5rem;
+  font-size: var(--small);
+  align-items: center;
+}
+
+section p:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+#masonry-cover {
+  padding: 1rem;
+  background-color: var(--black);
+  position: relative;
+}
+
+#masonry {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 12rem 12rem 12rem;
+  row-gap: 1rem;
+  overflow-x: hidden;
+}
+
+#masonry div {
+  display: flex;
+  transition: transform var(--fast) linear;
+}
+
+#masonry img {
+  border-radius: 0;
+  margin-right: 1rem;
+}
+
+#masonry-left,
+#masonry-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 4rem;
+  opacity: 0;
+  transition: opacity var(--fast);
+}
+
+#masonry-left {
+  left: 1rem;
+  background-image: linear-gradient(90deg, var(--black) 0%, transparent 100%);
+}
+
+#masonry-right {
+  right: 1rem;
+  background-image: linear-gradient(90deg, transparent 0%, var(--black) 100%);
+}
+
+#masonry-left.active,
+#masonry-right.active {
+  opacity: 1;
+}
+
+#masonry-cover i {
+  cursor: pointer;
+  transition: color var(--fast);
+}
+
+#masonry-cover i:hover {
+  color: var(--blue);
+}
+
+#masonry-cover i:active {
+  color: var(--green);
+}
+
+#masonry-cover .fa-angle-left {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -5rem;
+  font-size: 5rem;
+}
+
+#masonry-cover .fa-angle-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -5rem;
+  font-size: 5rem;
+}
+
+#address {
+  width: 30rem;
+  margin: 0 auto 5rem;
+}
+
+#address p {
+  margin-bottom: 1rem;
+}
+
+iframe {
+  width: 100%;
+  height: 15rem;
+}
+
+#form {
+  width: 30rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#form p {
+  margin-bottom: 1rem;
+}
+
+#form div {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 15rem;
+}
+
+#form div i {
+  position: absolute;
+  top: 50%;
+  left: 0.6rem;
+  transform: translateY(-50%);
+  color: var(--green);
+}
+
+#form input,
+#form textarea {
+  width: 100%;
+  border-radius: 1rem;
+  border: 0.2rem solid var(--dark-green);
+  font-weight: 600;
+}
+
+#form input {
+  padding: 0.2rem 0.4rem 0.2rem 1.75rem;
+}
+
+#form textarea {
+  padding: 0.2rem 0.4rem;
+  margin-bottom: 1rem;
+}
+
+#form span {
+  margin-bottom: 0.25rem;
+  font-style: italic;
+}
+
+#form button {
+  border: 0.2rem solid var(--dark-green);
+  border-radius: 10rem;
+  padding: 0.2rem 0.4rem;
+  min-width: 7.5rem;
+  background-color: var(--white);
+  font-weight: 600;
+  color: var(--dark-green);
+  cursor: pointer;
+  transition: background-color var(--fast), color var(--fast), border-color var(--fast);
+}
+
+#form button:hover {
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+#form button:active {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+#about-us,
+#dermal-filler,
+#rhinoplasty,
+#gallery,
+#contact {
+  transform: translateY(-10rem);
+}

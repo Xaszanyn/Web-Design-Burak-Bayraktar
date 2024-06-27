@@ -1,0 +1,20 @@
+:root {
+  --white: #ffffff;
+  --black: #19191b;
+  --gray: #909097;
+  --blue: #1f2b92;
+  --green: #00c753;
+  --dark-green: #008080;
+  --red: #f02222;
+
+  --header: rgba(0, 0, 0, 0.3);
+  --amk: rgba(0, 128, 128, 0.3);
+
+  --fast: 0.2s;
+
+  --tiny: 0;
+  --small: 1.1rem;
+  --medium: 1.25rem;
+  --big: 1.5rem;
+  --vast: 3rem;
+}

@@ -1,0 +1,52 @@
+header {
+  position: relative;
+  margin-top: 6rem;
+  height: 45rem;
+  transition: margin-top var(--fast);
+}
+
+.initial header {
+  margin-top: 8rem;
+}
+
+header video {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+header div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  color: var(--white);
+  background-color: var(--header);
+}
+
+header h2 {
+  margin-top: 7rem;
+  width: 21rem;
+  text-align: right;
+  font-size: var(--vast);
+  font-weight: 300;
+}
+
+header h2 span {
+  font-weight: 500;
+  color: var(--green);
+}
+
+header p {
+  font-style: italic;
+  line-height: 1.8rem;
+  margin-left: 2.5rem;
+  margin-top: 2.5rem;
+  width: 18.5rem;
+  text-align: right;
+  font-size: var(--medium);
+}
