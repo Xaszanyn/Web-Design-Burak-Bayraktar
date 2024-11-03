@@ -14,16 +14,92 @@ section h3 {
   color: var(--dark-green);
 }
 
+section h4 {
+  font-size: var(--big);
+  font-weight: 500;
+  color: var(--dark-green);
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
 section .content {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   column-gap: 5rem;
+  row-gap: 5rem;
   font-size: var(--small);
   align-items: center;
 }
 
-section p:not(:last-of-type) {
+section .content img {
+  width: 100%;
+  max-height: 50rem;
+}
+
+section .content ul {
+  list-style-position: inside;
+}
+
+section .content li {
+  margin-bottom: 0.75rem;
+}
+
+section .content h4 {
+  grid-column: span 2;
+}
+
+section .content p,
+section .content ul {
   margin-bottom: 1rem;
+}
+
+section .content b {
+  font-weight: 600;
+}
+
+section .content > div > :last-child {
+  margin-bottom: 0;
+}
+
+.before-after {
+  position: relative;
+  width: 100%;
+  height: 35rem;
+  margin-bottom: 5rem;
+}
+
+.before-after img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30rem;
+  height: 35rem !important;
+  transition: clip-path var(--fast);
+  clip-path: inset(0% 0% 0% 100%);
+}
+
+.before-after img.active {
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+.before-after i {
+  position: absolute;
+  background-color: var(--dark-green);
+  color: var(--white);
+  font-size: var(--big);
+  padding: 0.5rem;
+  border-radius: 10rem;
+  top: 1rem;
+  right: calc(50% - 15rem + 1rem);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: background-color var(--fast), opacity var(--fast);
+}
+
+.before-after i:hover {
+  opacity: 1;
+  background-color: var(--green);
 }
 
 #masonry-cover {
@@ -175,7 +251,8 @@ iframe {
   font-weight: 600;
   color: var(--dark-green);
   cursor: pointer;
-  transition: background-color var(--fast), color var(--fast), border-color var(--fast);
+  transition: background-color var(--fast), color var(--fast),
+    border-color var(--fast);
 }
 
 #form button:hover {
