@@ -10,6 +10,8 @@ var maximum = 4;
 const beforeAfters = document.querySelectorAll(".before-after");
 const beforeAfterButtons = document.querySelectorAll(".before-after i");
 
+const menuNavigation = document.querySelector("nav");
+
 function clamp(num, min, max) {
   return num < min ? min : num > max ? max : num;
 }
@@ -73,26 +75,78 @@ function handleBeforeAfters() {
   }
 }
 
-window.addEventListener("scroll", () => {
-  let ratio = Math.ceil(
-    (Math.max(0, window.scrollY) /
-      (document.body.offsetHeight - window.innerHeight)) *
-      100
+function toggleMenu() {
+  menuNavigation.classList.toggle("active");
+}
+
+async function sendForm() {
+  let data = new FormData();
+
+  data.append(
+    "entry.1175482922",
+    document.querySelector("#form div:nth-of-type(1) input").value
+  );
+  data.append(
+    "entry.971272702",
+    document.querySelector("#form div:nth-of-type(2) input").value
+  );
+  data.append(
+    "entry.769763202",
+    document.querySelector("#form div:nth-of-type(3) input").value
+  );
+  data.append(
+    "entry.226975128",
+    document.querySelector("#form textarea").value
   );
 
-  if (!ratio) document.body.classList.add("initial");
+  try {
+    await fetch(
+      "https://docs.google.com/forms/d/e/1FAIpQLSc2sGjwnq3h4cM2KR9haC-BQkbaH4KmlExNqNsmSX1i4iWvzg/formResponse",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+  } catch {}
+
+  location.href = "";
+}
+
+let mobile = innerWidth / innerHeight <= 1;
+
+window.addEventListener("scroll", () => {
+  let unit = parseInt((scrollY * 100) / innerWidth);
+
+  if (!unit) document.body.classList.add("initial");
   else document.body.classList.remove("initial");
 
   active.classList.remove("active");
 
-  if (ratio < 12) active = navigation[0];
-  else if (ratio < 23) active = navigation[1];
-  else if (ratio < 44) active = navigation[2];
-  else if (ratio < 67) active = navigation[3];
-  else if (ratio <= 91) active = navigation[4];
-  else active = navigation[5];
+  if (innerWidth / innerHeight > 1) {
+    mobile = false;
+    if (unit < 50) active = navigation[0];
+    else if (unit < 105) active = navigation[1];
+    else if (unit < 192.5) active = navigation[2];
+    else if (unit < 305) active = navigation[3];
+    else if (unit <= 412.5) active = navigation[4];
+    else active = navigation[5];
+  } else {
+    mobile = true;
+    if (unit < 150) active = navigation[0];
+    else if (unit < 430) active = navigation[1];
+    else if (unit < 822.5) active = navigation[2];
+    else if (unit < 1370) active = navigation[3];
+    else if (unit <= 1917.5) active = navigation[4];
+    else active = navigation[5];
+  }
 
   active.classList.add("active");
 });
 
 handleBeforeAfters();
+
+document.querySelectorAll("#navigation a").forEach((element) =>
+  element.addEventListener("click", () => {
+    if (mobile) menuNavigation.classList.remove("active");
+  })
+);

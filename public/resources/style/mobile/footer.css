@@ -1,0 +1,19 @@
+@media (max-aspect-ratio: 1/1) {
+  footer {
+    padding: 5rem;
+    text-align: center;
+  }
+
+  footer div {
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+  }
+
+  footer a {
+    margin-right: 2.5rem;
+  }
+
+  footer p {
+    margin-bottom: 5rem;
+  }
+}

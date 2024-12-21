@@ -1,0 +1,113 @@
+#menu {
+  display: none;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  nav {
+    width: 100rem;
+    height: 15rem;
+    padding: 0 5rem;
+    box-shadow: 0 2rem 2rem var(--shadow);
+  }
+
+  .initial nav {
+    height: 17.5rem;
+  }
+
+  #menu {
+    display: unset;
+    font-size: var(--small);
+    margin-right: 4rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  #phone {
+    position: absolute;
+    bottom: -5rem;
+    transform: translateY(100%);
+    padding: 0;
+    margin-right: auto;
+    z-index: 2;
+    transition: opacity var(--fast), left var(--fast-delay);
+    left: -50rem;
+    opacity: 0;
+  }
+
+  nav.active #phone {
+    transition: opacity var(--fast);
+    left: 5rem;
+    opacity: 1;
+  }
+
+  #phone i {
+    margin: 0;
+  }
+
+  #navigation {
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 15rem 5rem 17.5rem;
+    font-size: var(--small);
+    box-shadow: 0 2rem 2rem var(--shadow), inset 0 2rem 2rem var(--shadow);
+    transition: clip-path var(--fast);
+    clip-path: inset(0% 0% 100% 0%);
+  }
+
+  nav.active #navigation {
+    clip-path: inset(0% 0% calc(0% - 2rem) 0%);
+  }
+
+  #navigation a {
+    margin: 0;
+    padding: 2rem 0;
+  }
+
+  #navigation a {
+    border-bottom: 0.2rem solid var(--gray);
+  }
+
+  #navigation a:first-of-type {
+    border-top: 0.2rem solid var(--gray);
+  }
+
+  #contact-icons {
+    position: absolute;
+    bottom: -75rem;
+    transform: translateY(100%);
+    transition: opacity var(--fast), left var(--fast-delay);
+    left: -50rem;
+    opacity: 0;
+  }
+
+  nav.active #contact-icons {
+    transition: opacity var(--fast);
+    left: 5rem;
+    opacity: 1;
+  }
+
+  #contact-icons a {
+    margin-right: 2.5rem;
+    transition: color var(--fast);
+    padding: 1rem 0;
+    color: var(--green);
+  }
+
+  #contact-icons a:last-of-type {
+    margin-right: 0;
+  }
+
+  #navigation a:hover,
+  #contact-icons a:hover {
+    color: var(--dark-green);
+  }
+}

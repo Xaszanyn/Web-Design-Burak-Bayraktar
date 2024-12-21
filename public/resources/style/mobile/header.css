@@ -1,0 +1,48 @@
+header img {
+  display: none;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  header {
+    margin-top: 15rem;
+    height: 150rem;
+  }
+
+  .initial header {
+    margin-top: 17.5rem;
+  }
+
+  header img {
+    display: block;
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  header video {
+    display: none;
+  }
+
+  header div {
+    padding: 5rem;
+  }
+
+  header h2 {
+    margin: 10rem 0;
+    width: unset;
+    text-align: left;
+    font-size: var(--mobile-vast);
+    text-shadow: 0 0 5rem var(--black), 0 0 15rem var(--black);
+  }
+
+  header p {
+    margin: 30rem 0;
+    width: unset;
+    text-align: right;
+    font-size: var(--medium);
+    text-shadow: 0 0 5rem var(--black), 0 0 15rem var(--black);
+  }
+}

@@ -8,7 +8,7 @@ nav {
   align-items: center;
   padding: 0 2.5rem;
   z-index: 1;
-  border-bottom: 0.2rem solid var(--black);
+  box-shadow: 0 0.5rem 0.5rem var(--shadow);
   transition: height var(--fast);
 }
 
@@ -17,7 +17,7 @@ nav {
 }
 
 h1 {
-  font-size: var(--big);
+  font-size: var(--large);
   font-weight: 600;
   margin-right: auto;
 }
@@ -57,6 +57,7 @@ h1 {
   margin-right: 0.5rem;
   transition: color var(--fast);
   padding: 1rem 0;
+  color: var(--dark-green);
 }
 
 #contact-icons a:last-of-type {
@@ -65,5 +66,5 @@ h1 {
 
 #navigation a:hover,
 #contact-icons a:hover {
-  color: var(--dark-green);
+  color: var(--green);
 }

@@ -1,11 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import url("./variables.css");
+@import url("./variables.css?version=0.9");
 
-@import url("./desktop/navigation.css");
-@import url("./desktop/header.css");
-@import url("./desktop/main.css");
-@import url("./desktop/footer.css");
+@import url("./desktop/navigation.css?version=0.9");
+@import url("./desktop/header.css?version=0.9");
+@import url("./desktop/main.css?version=0.9");
+@import url("./desktop/footer.css?version=0.9");
+
+@import url("./mobile/navigation.css?version=0.9");
+@import url("./mobile/header.css?version=0.9");
+@import url("./mobile/main.css?version=0.9");
+@import url("./mobile/footer.css?version=0.9");
+
+@keyframes unscrolled {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 0 0, 0 0, 0 100%);
+  }
+}
+
+@keyframes scrolled {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 0 0, 0 0, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+  }
+}
 
 * {
   margin: 0;
@@ -16,8 +45,14 @@
 html {
   scroll-behavior: smooth;
   font-size: 1vw;
-  word-spacing: 0.25rem;
+  word-spacing: 0.15rem;
   overflow-x: hidden;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  html {
+    word-spacing: 1rem;
+  }
 }
 
 body {
@@ -28,7 +63,7 @@ body {
 
 p,
 ul {
-  line-height: 1.5rem;
+  line-height: 135%;
 }
 
 a {
