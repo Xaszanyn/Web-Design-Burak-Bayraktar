@@ -16,4 +16,17 @@
   footer p {
     margin-bottom: 5rem;
   }
+
+  footer ul {
+    margin-bottom: 5rem;
+  }
+
+  footer ul li {
+    margin-right: 5rem;
+  }
+
+  footer ul img {
+    height: 5rem;
+    margin-right: 2.5rem;
+  }
 }

@@ -29,9 +29,34 @@ footer a:hover {
 }
 
 footer p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--white);
   font-style: italic;
+}
+
+footer ul {
+  display: flex;
+  list-style: none;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+footer ul li {
+  margin-right: 1.5rem;
+}
+
+footer ul a {
+  display: flex;
+  align-items: center;
+}
+
+footer ul li:last-of-type {
+  margin-right: 0;
+}
+
+footer ul img {
+  height: 1.5rem;
+  margin-right: 0.5rem;
 }
 
 footer span {

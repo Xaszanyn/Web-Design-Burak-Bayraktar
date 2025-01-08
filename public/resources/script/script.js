@@ -41,7 +41,7 @@ function moveGallery(direction) {
   );
 }
 
-function handleBeforeAfters() {
+(function handleBeforeAfters() {
   beforeAfterButtons.forEach((beforeAfterButton) =>
     beforeAfterButton.addEventListener("click", () => {
       if (!beforeAfterButton.parentElement.dataset.manuel)
@@ -73,7 +73,7 @@ function handleBeforeAfters() {
     beforeAfter.dataset.phase =
       phase == beforeAfter.children.length - 1 ? 0 : phase;
   }
-}
+})();
 
 function toggleMenu() {
   menuNavigation.classList.toggle("active");
@@ -143,10 +143,92 @@ window.addEventListener("scroll", () => {
   active.classList.add("active");
 });
 
-handleBeforeAfters();
-
 document.querySelectorAll("#navigation a").forEach((element) =>
   element.addEventListener("click", () => {
     if (mobile) menuNavigation.classList.remove("active");
   })
 );
+
+(async function handleLanguage() {
+  let language;
+
+  if (navigator.language.includes("tr")) language = "turkish";
+  else if (navigator.language.includes("en")) language = "english";
+  else if (navigator.language.includes("de")) language = "german";
+
+  if (location.href.includes("language=turkish")) language = "turkish";
+  else if (location.href.includes("language=english")) language = "english";
+  else if (location.href.includes("language=german")) language = "german";
+
+  language = await fetch(`resources/languages/${language}.txt`)
+    .then((response) => response.text())
+    .then((response) => response.split("\r\n\r\n"));
+
+  content = language[0].split("\r\n");
+  document.querySelectorAll("#navigation a").forEach((text, index) => {
+    text.textContent = content[index];
+  });
+
+  content = language[1].split("\r\n");
+  document.querySelector(
+    "header h2"
+  ).innerHTML = `${content[0]}<br><span>${content[1]}</span><br>${content[2]}`;
+
+  document.querySelector("header p").textContent = language[2];
+
+  document.querySelector("#about-us + h3").textContent = language[3];
+
+  content = language[4].split("\r\n");
+  document.querySelector(
+    "#about-us + h3 + .content > div"
+  ).innerHTML = `<p>${content[0]}</p><p><b>${content[1]}</b></p><ul><li>${content[2]}</li><li>${content[3]}</li><li>${content[4]}</li></ul><p><b>${content[5]}</b></p><ul><li>${content[6]}</li><li>${content[7]}</li><li>${content[8]}</li></ul>`;
+
+  document.querySelector("#rhinoplasty + h3").textContent = language[5];
+
+  document.querySelector(
+    "#rhinoplasty + h3 + .content div:nth-of-type(1)"
+  ).innerHTML = `<p>${language[6]}</p>`;
+
+  document.querySelector("#rhinoplasty + h3 + .content h4").textContent =
+    language[7];
+
+  content = language[8].split("\r\n");
+  document.querySelector(
+    "#rhinoplasty + h3 + .content div:nth-of-type(2)"
+  ).innerHTML = `<p>${content[0]}</p><p>${content[1]}</p>`;
+
+  document.querySelector("#botox + h3").textContent = language[9];
+
+  content = language[10].split("\r\n");
+  document.querySelector(
+    "#botox + h3 + .content div:nth-of-type(1)"
+  ).innerHTML = `<p>${content[0]}</p><p>${content[1]}</p><ul><li><b>${content[2]}</b> ${content[3]}</li><li><b>${content[4]}</b> ${content[5]}</li><li><b>${content[6]}</b> ${content[7]}</li></ul>`;
+
+  content = language[11].split("\r\n");
+  document.querySelector(
+    "#botox + h3 + .content div:nth-of-type(2)"
+  ).innerHTML = `<p>${content[0]}</p><ul><li><b>${content[1]}</b> ${content[2]}</li><li><b>${content[3]}</b> ${content[4]}</li></ul><p>${content[5]}</p><ul><li>${content[6]}</li><li>${content[7]}</li></ul>`;
+
+  content = language[12].split("\r\n");
+  document.querySelector(
+    "#botox + h3 + .content div:nth-of-type(3)"
+  ).innerHTML = `<p><b>${content[0]}</b> ${content[1]}</p><p>${content[2]}</p>`;
+
+  document.querySelector("#gallery + h3").textContent = language[13];
+
+  document.querySelector("#gallery + h3 + h4").textContent = language[14];
+
+  document.querySelector("#contact + h3").textContent = language[15];
+
+  document.querySelector("#address p").textContent = language[16];
+
+  content = language[17].split("\r\n");
+  document.querySelector(
+    "#form"
+  ).innerHTML = `<p><b>${content[0]}</b></p><span>${content[1]}</span><div><i class="fa-solid fa-user"></i><input type="text" placeholder="${content[2]}"></div><span>${content[3]}</span><div><i class="fa-solid fa-envelope"></i><input type="email" placeholder="${content[4]}"></div><span>${content[5]}</span><div><i class="fa-solid fa-phone"></i><input type="tel" placeholder="${content[6]}"></div><span>${content[7]}</span><textarea rows="5"></textarea><button onclick="sendForm()"><i class="fa-solid fa-check"></i> ${content[8]}</button>`;
+
+  content = language[18].split("\r\n");
+  document.querySelectorAll("footer div a").forEach((text, index) => {
+    text.textContent = content[index];
+  });
+})();
