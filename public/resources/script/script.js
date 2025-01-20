@@ -220,7 +220,7 @@ document.querySelectorAll("#navigation a").forEach((element) =>
 
   document.querySelector("#contact + h3").textContent = language[15];
 
-  document.querySelector("#address p").textContent = language[16];
+  document.querySelector("#address p br").textContent = language[16];
 
   content = language[17].split("\r\n");
   document.querySelector(
