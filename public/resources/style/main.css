@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import url("./variables.css?version=0.99");
+@import url("./variables.css?version=1.0");
 
-@import url("./desktop/navigation.css?version=0.99");
-@import url("./desktop/header.css?version=0.99");
-@import url("./desktop/main.css?version=0.99");
-@import url("./desktop/footer.css?version=0.99");
+@import url("./desktop/navigation.css?version=1.0");
+@import url("./desktop/header.css?version=1.0");
+@import url("./desktop/main.css?version=1.0");
+@import url("./desktop/footer.css?version=1.0");
 
-@import url("./mobile/navigation.css?version=0.99");
-@import url("./mobile/header.css?version=0.99");
-@import url("./mobile/main.css?version=0.99");
-@import url("./mobile/footer.css?version=0.99");
+@import url("./mobile/navigation.css?version=1.0");
+@import url("./mobile/header.css?version=1.0");
+@import url("./mobile/main.css?version=1.0");
+@import url("./mobile/footer.css?version=1.0");
 
 @keyframes unscrolled {
   0% {
@@ -56,7 +56,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Arial", sans-serif;
   color: var(--black);
   overflow-x: hidden;
 }

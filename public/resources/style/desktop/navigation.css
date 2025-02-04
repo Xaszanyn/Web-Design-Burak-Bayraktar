@@ -44,12 +44,11 @@ h1 {
   transition: color var(--fast);
   display: inline-block;
   padding: 1rem 0;
-  transition: color var(--fast), font-weight var(--fast);
+  transition: color var(--fast);
 }
 
 #navigation a.active {
   color: var(--dark-green);
-  font-weight: 800;
 }
 
 #contact-icons a {
