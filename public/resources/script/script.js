@@ -220,15 +220,34 @@ document.querySelectorAll("#navigation a").forEach((element) =>
 
   document.querySelector("#contact + h3").textContent = language[15];
 
-  document.querySelector("#address p b").textContent = language[16];
+  document.querySelector("#social-medias div:nth-of-type(1) p").textContent =
+    language[16];
+  document.querySelector("#social-medias div:nth-of-type(2) p").innerHTML =
+    language[17];
+  document.querySelector("#social-medias div:nth-of-type(3) p").textContent =
+    language[18];
+  document.querySelector("#social-medias div:nth-of-type(4) p").textContent =
+    language[19];
 
-  content = language[17].split("\r\n");
+  document.querySelector("#address p b").textContent = language[20];
+
+  content = language[21].split("\r\n");
   document.querySelector(
     "#form"
   ).innerHTML = `<p><b>${content[0]}</b></p><span>${content[1]}</span><div><i class="fa-solid fa-user"></i><input type="text" placeholder="${content[2]}"></div><span>${content[3]}</span><div><i class="fa-solid fa-envelope"></i><input type="email" placeholder="${content[4]}"></div><span>${content[5]}</span><div><i class="fa-solid fa-phone"></i><input type="tel" placeholder="${content[6]}"></div><span>${content[7]}</span><textarea rows="5"></textarea><button onclick="sendForm()"><i class="fa-solid fa-check"></i> ${content[8]}</button>`;
 
-  content = language[18].split("\r\n");
+  content = language[22].split("\r\n");
   document.querySelectorAll("footer div a").forEach((text, index) => {
     text.textContent = content[index];
   });
 })();
+
+function whatsapp() {
+  window.open(
+    location.href.includes("language=english") ||
+      location.href.includes("language=german") ||
+      !navigator.language.includes("tr")
+      ? "https://wa.me/905322551874"
+      : "https://wa.me/905057079363"
+  );
+}
