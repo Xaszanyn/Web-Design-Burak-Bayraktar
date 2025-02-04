@@ -219,6 +219,7 @@ section .content > div > ul:last-child > li:last-of-type {
 #address #social-medias img {
   height: var(--large);
   transform: translateY(0.4rem);
+  margin-right: 0.5rem;
 }
 
 #address #social-medias i {
