@@ -79,39 +79,6 @@ function toggleMenu() {
   menuNavigation.classList.toggle("active");
 }
 
-async function sendForm() {
-  let data = new FormData();
-
-  data.append(
-    "entry.1175482922",
-    document.querySelector("#form div:nth-of-type(1) input").value
-  );
-  data.append(
-    "entry.971272702",
-    document.querySelector("#form div:nth-of-type(2) input").value
-  );
-  data.append(
-    "entry.769763202",
-    document.querySelector("#form div:nth-of-type(3) input").value
-  );
-  data.append(
-    "entry.226975128",
-    document.querySelector("#form textarea").value
-  );
-
-  try {
-    await fetch(
-      "https://docs.google.com/forms/d/e/1FAIpQLSc2sGjwnq3h4cM2KR9haC-BQkbaH4KmlExNqNsmSX1i4iWvzg/formResponse",
-      {
-        method: "POST",
-        body: data,
-      }
-    );
-  } catch {}
-
-  location.href = "";
-}
-
 let mobile = innerWidth / innerHeight <= 1;
 
 window.addEventListener("scroll", () => {
@@ -149,7 +116,17 @@ document.querySelectorAll("#navigation a").forEach((element) =>
   })
 );
 
-(async function handleLanguage() {
+function whatsapp() {
+  window.open(
+    location.href.includes("language=english") ||
+      location.href.includes("language=german") ||
+      !navigator.language.includes("tr")
+      ? "https://wa.me/905322551874"
+      : "https://wa.me/905057079363"
+  );
+}
+
+async function handleLanguage() {
   let language;
 
   if (navigator.language.includes("tr")) language = "turkish";
@@ -234,20 +211,48 @@ document.querySelectorAll("#navigation a").forEach((element) =>
   content = language[21].split("\r\n");
   document.querySelector(
     "#form"
-  ).innerHTML = `<p><b>${content[0]}</b></p><span>${content[1]}</span><div><i class="fa-solid fa-user"></i><input type="text" placeholder="${content[2]}"></div><span>${content[3]}</span><div><i class="fa-solid fa-envelope"></i><input type="email" placeholder="${content[4]}"></div><span>${content[5]}</span><div><i class="fa-solid fa-phone"></i><input type="tel" placeholder="${content[6]}"></div><span>${content[7]}</span><textarea rows="5"></textarea><button onclick="sendForm()"><i class="fa-solid fa-check"></i> ${content[8]}</button>`;
+  ).innerHTML = `<p><b>${content[0]}</b></p><span>${content[1]}</span><div><i class="fa-solid fa-user"></i><input type="text" placeholder="${content[2]}"></div><span>${content[3]}</span><div><i class="fa-solid fa-envelope"></i><input type="email" placeholder="${content[4]}"></div><span>${content[5]}</span><div><i class="fa-solid fa-phone"></i><input type="tel" placeholder="${content[6]}"></div><span>${content[7]}</span><textarea rows="5"></textarea><button><i class="fa-solid fa-check"></i> ${content[8]}</button>`;
 
   content = language[22].split("\r\n");
   document.querySelectorAll("footer div a").forEach((text, index) => {
     text.textContent = content[index];
   });
-})();
-
-function whatsapp() {
-  window.open(
-    location.href.includes("language=english") ||
-      location.href.includes("language=german") ||
-      !navigator.language.includes("tr")
-      ? "https://wa.me/905322551874"
-      : "https://wa.me/905057079363"
-  );
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await handleLanguage();
+
+  let [name, email, phone, description, button] = document.querySelectorAll(
+    "#form input, #form textarea, #form button"
+  );
+
+  console.log(button);
+
+  button.addEventListener("click", async (data) => {
+    await firebase.database().ref("contacts").push({
+      name: name.value,
+      email: email.value,
+      phone: phone.value,
+      description: description.value,
+    });
+
+    data = new FormData();
+
+    data.append("entry.1265483795", name.value);
+    data.append("entry.1985592642", email.value);
+    data.append("entry.951002436", phone.value);
+    data.append("entry.452937746", description.value);
+
+    try {
+      await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSflp47cK44tG0jRcFT5SWlTWseQEdOZuLrncUEaOiFRRDFvzA/formResponse",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+    } catch {}
+
+    location.href = "";
+  });
+});

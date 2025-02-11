@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import url("./variables.css?version=1.1");
+@import url("./variables.css?version=1.2");
 
-@import url("./desktop/navigation.css?version=1.1");
-@import url("./desktop/header.css?version=1.1");
-@import url("./desktop/main.css?version=1.1");
-@import url("./desktop/footer.css?version=1.1");
+@import url("./desktop/navigation.css?version=1.2");
+@import url("./desktop/header.css?version=1.2");
+@import url("./desktop/main.css?version=1.2");
+@import url("./desktop/footer.css?version=1.2");
 
-@import url("./mobile/navigation.css?version=1.1");
-@import url("./mobile/header.css?version=1.1");
-@import url("./mobile/main.css?version=1.1");
-@import url("./mobile/footer.css?version=1.1");
+@import url("./mobile/navigation.css?version=1.2");
+@import url("./mobile/header.css?version=1.2");
+@import url("./mobile/main.css?version=1.2");
+@import url("./mobile/footer.css?version=1.2");
 
 @keyframes unscrolled {
   0% {

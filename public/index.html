@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Op. Dr. Burak Bayraktar</title>
-    <link rel="stylesheet" href="./resources/style/main.css?version=1.1" />
+    <link rel="stylesheet" href="./resources/style/main.css?version=1.2" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -12,6 +12,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script defer src="/__/firebase/11.3.0/firebase-app-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/11.3.0/firebase-database-compat.js"
+    ></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
   </head>
   <body class="initial">
     <nav>
@@ -381,9 +387,7 @@
           </div>
           <span>Açıklama</span>
           <textarea rows="5"></textarea>
-          <button onclick="sendForm()">
-            <i class="fa-solid fa-check"></i> Gönder
-          </button>
+          <button><i class="fa-solid fa-check"></i> Gönder</button>
         </div>
       </section>
     </main>
@@ -438,6 +442,6 @@
     <div id="float">
       <a href="#" onclick="whatsapp()"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
-    <script src="./resources/script/script.js?version=1.1"></script>
+    <script src="./resources/script/script.js?version=1.2"></script>
   </body>
 </html>
