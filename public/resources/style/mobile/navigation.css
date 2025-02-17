@@ -46,6 +46,10 @@
     margin: 0;
   }
 
+  .language {
+    display: none;
+  }
+
   #navigation {
     margin: 0;
     width: 100%;

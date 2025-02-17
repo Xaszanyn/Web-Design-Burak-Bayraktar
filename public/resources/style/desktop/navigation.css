@@ -34,6 +34,14 @@ h1 {
   margin: 0.2rem 0.15rem 0 0;
 }
 
+.language {
+  margin-right: 4rem;
+}
+
+.language img {
+  width: 1.5rem;
+}
+
 #navigation {
   margin-right: 1rem;
 }
