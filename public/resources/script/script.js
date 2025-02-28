@@ -226,8 +226,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     "#form input, #form textarea, #form button"
   );
 
-  console.log(button);
-
   button.addEventListener("click", async (data) => {
     await firebase.database().ref("contacts").push({
       name: name.value,
