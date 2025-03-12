@@ -47,7 +47,24 @@
   }
 
   .language {
-    display: none;
+    position: absolute;
+    right: -50rem;
+    bottom: -75rem;
+    transform: translateY(100%);
+    transition: opacity var(--fast), right var(--fast-delay);
+    opacity: 0;
+    z-index: 10;
+  }
+
+  .language img {
+    width: 5rem;
+    margin-left: 2.5rem;
+  }
+
+  nav.active .language {
+    transition: opacity var(--fast);
+    right: 5rem;
+    opacity: 1;
   }
 
   #navigation {

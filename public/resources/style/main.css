@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import url("./variables.css?version=1.3");
+@import url("./variables.css?version=1.4");
 
-@import url("./desktop/navigation.css?version=1.3");
-@import url("./desktop/header.css?version=1.3");
-@import url("./desktop/main.css?version=1.3");
-@import url("./desktop/footer.css?version=1.3");
+@import url("./desktop/navigation.css?version=1.4");
+@import url("./desktop/header.css?version=1.4");
+@import url("./desktop/main.css?version=1.4");
+@import url("./desktop/footer.css?version=1.4");
 
-@import url("./mobile/navigation.css?version=1.3");
-@import url("./mobile/header.css?version=1.3");
-@import url("./mobile/main.css?version=1.3");
-@import url("./mobile/footer.css?version=1.3");
+@import url("./mobile/navigation.css?version=1.4");
+@import url("./mobile/header.css?version=1.4");
+@import url("./mobile/main.css?version=1.4");
+@import url("./mobile/footer.css?version=1.4");
 
 @keyframes unscrolled {
   0% {
@@ -45,13 +45,13 @@
 html {
   scroll-behavior: smooth;
   font-size: 1vw;
-  word-spacing: 0.15rem;
+  /* word-spacing: 0.15rem; */
   overflow-x: hidden;
 }
 
 @media (max-aspect-ratio: 1/1) {
   html {
-    word-spacing: 1rem;
+    /* word-spacing: 1rem; */
   }
 }
 
